@@ -1359,18 +1359,41 @@ section {
 .timeline-card {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
+
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 20px 24px;
+
+    transition: all .35s ease;
 }
 
-.institute-logo {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 8px;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s ease;
+.timeline-card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(59,130,246,.35);
+    box-shadow: 0 15px 40px rgba(59,130,246,.15);
+}
+
+.institute-logo{
+    width:70px;
+    height:70px;
+    flex-shrink:0;
+
+    object-fit:contain;
+
+    background:#ffffff;
+    border-radius:16px;
+    padding:10px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.35s ease;
+}
+
+.timeline-card:hover .institute-logo{
+    transform:scale(1.08) rotate(-3deg);
+    box-shadow:0 10px 30px rgba(59,130,246,.3);
 }
 
 .institute-logo:hover {
