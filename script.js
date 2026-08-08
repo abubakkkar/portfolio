@@ -109,7 +109,7 @@ function initScrollSpy() {
                 
                 navLinks.forEach(link => {
                     link.classList.remove("active");
-                    if (link.getAttribute("href") === `#${id}`) {
+                    if (link.getAttribute("href") === `${id}`) {
                         link.classList.add("active");
                     }
                 });

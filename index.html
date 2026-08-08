@@ -31,7 +31,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
-                <span class="logo-accent">&lt;</span>ABUBAKAR<span class="logo-accent"> /&gt;</span>
+                <span class="logo-accent"></span>ABUBAKAR<span class="logo-accent"></span>
             </a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="bar"></span>
@@ -43,8 +43,8 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Education</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
             </ul>
         </div>
     </nav>
@@ -66,11 +66,11 @@
                     Aspiring software engineer specializing in C#, .NET, Python, and backend system design. Passionate about structuring clean architectures and resolving complex backend challenges.
                 </p>
                 <div class="hero-actions animate-fade-in-up delay-6">
-                    <a href="#projects" class="btn btn-primary">
+                    <a href="projects" class="btn btn-primary">
                         <span>View Projects</span>
                         <i class="fa-solid fa-arrow-right-long"></i>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
+                    <a href="contact" class="btn btn-secondary">
                         <span>Contact Me</span>
                     </a>
                 </div>
@@ -95,7 +95,6 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">// Overview</span>
                 <h3 class="section-title">About Me</h3>
             </div>
             <div class="about-grid">
@@ -122,7 +121,6 @@
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">// Expertise</span>
                 <h3 class="section-title">Technical Matrix</h3>
             </div>
             <div class="skills-grid">
@@ -221,6 +219,13 @@
                             </div>
                             <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
                         </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -231,7 +236,6 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">// Work</span>
                 <h3 class="section-title">Featured Projects</h3>
             </div>
             <div class="projects-grid">
@@ -416,20 +420,83 @@ View Code
             </div>
         </div>
     </section>
-
-    <!-- EXPERIENCE / EDUCATION (TIMELINE VIEW) -->
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">// Chronology</span>
-                <h3 class="section-title">Education & Career Path</h3>
-            </div>
             
-           <!-- EXPERIENCE / EDUCATION (TIMELINE VIEW) -->
+    <!-- EXPERIENCE (TIMELINE VIEW) -->
 <section id="experience" class="experience-section">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">// Chronology</span>
+            <h3 class="section-title">Work Experience</h3>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-scroll-progress"></div>
+
+            <div class="timeline">
+
+                <!-- Timeline Node 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content-wrapper">
+                        <span class="timeline-date">Aug 2026 - Present</span>
+
+                        <div class="timeline-card">
+                            <img src="images/slang.jpg" 
+                                 alt="Slang Logo" 
+                                 class="institute-logo"
+                                 onerror="this.style.display='none'">
+                            <div class="timeline-details">
+                                <h5 class="timeline-title">
+                                    Co-Founder
+                                </h5>
+
+                                <p class="timeline-org">
+                                    <a href="ttps://www.linkedin.com/company/slangofficial/"
+target="_blank">
+Slang
+</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Node 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content-wrapper">
+                        <span class="timeline-date">July 2026 - Present</span>
+
+                        <div class="timeline-card">
+                            <img src="images/flyrank.jpg" 
+                                 alt="FlyRank AI Logo" 
+                                 class="institute-logo"
+                                 onerror="this.style.display='none'">
+                            <div class="timeline-details">
+                                <h5 class="timeline-title">
+                                    AI Intern
+                                </h5>
+
+                                <p class="timeline-org">
+                                    <a href="https://flyrank.ai/" target="_blank">
+                                        FlyRank AI
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+            
+    <!-- EDUCATION (TIMELINE VIEW) -->
+<section id="education" class="education-section">
+    <div class="container">
+        <div class="section-header">
             <h3 class="section-title">Education & Career Path</h3>
         </div>
 
@@ -474,9 +541,9 @@ View Code
                         <span class="timeline-date">2023 - 2025</span>
 
                         <div class="timeline-card">
-                            <img src="images/gcu-logo.png" 
+                               <img src="images/gcu.png" 
                                  alt="GCU Lahore Logo" 
-                                 class="institute-logo">
+                                   class="institute-logo gcu-logo">
 
                             <div class="timeline-details">
                                 <h5 class="timeline-title">
@@ -530,7 +597,6 @@ View Code
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">// Connect</span>
                 <h3 class="section-title">Establish Communication</h3>
             </div>
             <div class="contact-grid">
@@ -548,18 +614,18 @@ View Code
                                 <span class="channel-val">muhammadabubakar85033@gmail.com</span>
                             </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/muhammad-abubakar-84944337a/" target="_blank" class="channel-link">
+                        <a href="https://www.linkedin.com/in/muhammad-abubakar-84944337a/" target="_blank" class="channel-link channel-link-linkedin">
                             <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                             <div class="channel-details">
                                 <span class="channel-lbl">LinkedIn Portal</span>
-                                <span class="channel-val">in/muhammad-abubakar-84944337a</span>
+                                <span class="channel-val">Muhammad AbuBakar</span>
                             </div>
                         </a>
-                        <a href="https://github.com/abubakkkar" target="_blank" class="channel-link">
+                        <a href="https://github.com/abubakkkar" target="_blank" class="channel-link channel-link-github">
                             <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
                             <div class="channel-details">
-                                <span class="channel-lbl">GitHub Repository</span>
-                                <span class="channel-val">github.com/abubakkkar</span>
+                                <span class="channel-lbl">GitHub</span>
+                                <span class="channel-val">abubakkkar</span>
                             </div>
                         </a>
                     </div>

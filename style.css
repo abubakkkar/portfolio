@@ -992,6 +992,9 @@ section {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     background-color: rgba(255, 255, 255, 0.02);
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
     transition: all var(--transition-fast);
 }
 
@@ -1039,6 +1042,30 @@ section {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-primary);
+}
+
+.channel-link-linkedin .channel-icon {
+    color: #0a66c2;
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.18), rgba(59, 130, 246, 0.08));
+    border-color: rgba(10, 102, 194, 0.3);
+}
+
+.channel-link-github .channel-icon {
+    color: #f4f4f5;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(59, 130, 246, 0.05));
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.channel-link-linkedin:hover .channel-icon {
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.36), rgba(59, 130, 246, 0.18));
+    border-color: rgba(10, 102, 194, 0.55);
+}
+
+.channel-link-github:hover .channel-icon {
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(59, 130, 246, 0.1));
+    border-color: rgba(255, 255, 255, 0.22);
 }
 
 /* Contact form card */
@@ -1382,13 +1409,19 @@ section {
 
     object-fit:contain;
 
-    background:#ffffff;
+    background:transparent;
     border-radius:16px;
-    padding:10px;
+    padding:0;
 
     border:1px solid rgba(255,255,255,.15);
 
     transition:.35s ease;
+}
+
+.gcu-logo {
+    object-position: center;
+    mix-blend-mode: multiply;
+    filter: contrast(1.05) saturate(1.05);
 }
 
 .timeline-card:hover .institute-logo{
