@@ -3,6 +3,7 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+    initScrollReset();
     initCustomCursor();
     initMobileNav();
     initScrollSpy();
@@ -10,6 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
     initSpotlightEffect();
     initScrollReveal();
 });
+
+/* ========================================================================== 
+   0. FORCE PAGE TO START AT THE TOP ON LOAD/RELOAD
+   ========================================================================== */
+function initScrollReset() {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    const scrollToTop = () => window.scrollTo(0, 0);
+
+    window.addEventListener("load", scrollToTop, { once: true });
+    window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+            scrollToTop();
+        }
+    });
+}
 
 /* ==========================================================================
    1. CUSTOM INTERACTIVE CURSOR WITH LERP SMOOTHING
