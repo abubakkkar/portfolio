@@ -38,6 +38,13 @@ function initCustomCursor() {
     const cursorDot = document.getElementById("magnetic-cursor-dot");
     
     if (!cursorRing || !cursorDot) return;
+
+    const isTouchLikeDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    if (isTouchLikeDevice) {
+        cursorRing.hidden = true;
+        cursorDot.hidden = true;
+        return;
+    }
     
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
