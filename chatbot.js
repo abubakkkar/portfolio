@@ -399,10 +399,9 @@
       }
 
       if (msg.includes('recipe') || msg.includes('cake') || msg.includes('weather') || msg.includes('movie')) {
-        return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";
+       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";
       }
 
-      return "Hi! I'm Abubakar's AI Portfolio Assistant. Muhammad Abubakar is a Software Engineer specializing in C#, .NET, Python, and backend system design. Feel free to ask about his skills, featured projects, work experience, or education!";
-    }
+      return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";    }
   }
 })();

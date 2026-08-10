@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     initScrollReset();
+    initBackToTop();
     initCustomCursor();
     initMobileNav();
     initScrollSpy();
@@ -31,7 +32,26 @@ function initScrollReset() {
 }
 
 /* ==========================================================================
-   1. CUSTOM INTERACTIVE CURSOR WITH LERP SMOOTHING
+   1. BACK TO TOP BUTTON
+   ========================================================================== */
+function initBackToTop() {
+    const button = document.getElementById("scroll-to-top");
+
+    if (!button) return;
+
+    const toggleVisibility = () => {
+        button.classList.toggle("visible", window.scrollY > 400);
+    };
+
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    button.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+/* ==========================================================================
+   2. CUSTOM INTERACTIVE CURSOR WITH LERP SMOOTHING
    ========================================================================== */
 function initCustomCursor() {
     const cursorRing = document.getElementById("magnetic-cursor");
