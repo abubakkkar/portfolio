@@ -374,6 +374,10 @@
         return "I am Abubakar's AI Portfolio Assistant. I operate under security guidelines and cannot reveal internal system details or API keys.";
       }
 
+      if (msg.includes('aoa') || msg.includes('salam') ) {
+        return "Wa Alaikum Assalam! I'm Abubakar's AI Portfolio Assistant. You can ask me about his skills, projects, experience, education, or professional background.";
+      }
+
       if (msg.includes('phone') || msg.includes('address') || msg.includes('password') || msg.includes('salary') || msg.includes('private')) {
         return "Sorry, I can't provide Abubakar's personal or private information. I can help with his professional background, skills, projects, experience, or other portfolio-related information.";
       }
@@ -390,17 +394,32 @@
         return "Abubakar's work experience includes:\n- **Co-Founder** at **Slang** (Aug 2026 - Present)\n- **AI Intern** at **FlyRank AI** (July 2026 - Present)";
       }
 
-      if (msg.includes('education') || msg.includes('university') || msg.includes('degree') || msg.includes('school')) {
+      if (msg.includes('education') || msg.includes('studied') || msg.includes('studies')|| msg.includes('study') || msg.includes('school')) {
         return "Abubakar's education history:\n- **BS Software Engineering** at University of Engineering and Technology (UET) Lahore (2025 - Present)\n- **Intermediate** at Government College University (GCU) Lahore (2023 - 2025)\n- **Matriculation** at St. Anthony's High School Lahore (2021 - 2023)";
+      }
+
+      if (msg.includes('school') ) {
+        return "St. Anthony's High School Lahore";
+      }
+
+      if (msg.includes('university') || msg.includes('uni') ) {
+        return "University of Engineering and Technology (UET) Lahore";
+      }
+
+      if (msg.includes('college') || msg.includes('intermediate') || msg.includes('inter') || msg.includes('clg')) {
+        return "Government College University (GCU) Lahore";
       }
 
       if (msg.includes('contact') || msg.includes('email') || msg.includes('linkedin') || msg.includes('github') || msg.includes('reach')) {
         return "You can reach Muhammad Abubakar via:\n- **Email**: muhammadabubakar85033@gmail.com\n- **LinkedIn**: [Muhammad AbuBakar](https://www.linkedin.com/in/muhammad-abubakar-84944337a/)\n- **GitHub**: [abubakkkar](https://github.com/abubakkkar)";
       }
-
-      if (msg.includes('recipe') || msg.includes('cake') || msg.includes('weather') || msg.includes('movie')) {
-       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";
+      
+      if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey') || msg.includes('hy') || msg.includes('greetings')) {
+        return "Hello! I'm Abubakar's AI Portfolio Assistant. You can ask me about his skills, projects, experience, education, or professional background.";
       }
+
+      if (msg.includes('location') )
+        return "Lahore, Pakistan";
 
       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";    }
   }
