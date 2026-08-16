@@ -1150,21 +1150,11 @@ section {
 }
 
 .contact-channels {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.channel-link {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  backdrop-filter: blur(16px);
-  transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .channel-link:hover {
@@ -1174,19 +1164,31 @@ section {
 }
 
 .channel-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+
+  border-radius: 10px;
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.3);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  color: var(--accent-cyan);
   flex-shrink: 0;
 }
 
+/* Make all logos/icons the same size */
+.channel-icon svg,
+.channel-icon img,
+.channel-icon i {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  display: block;
+  object-fit: contain;
+}
 .channel-link-linkedin .channel-icon {
   background: rgba(10, 102, 194, 0.15);
   border-color: rgba(10, 102, 194, 0.4);
@@ -1541,14 +1543,13 @@ section {
     align-items: flex-start;
   }
 
-  .contact-form-card,
-  .project-card,
-  .skills-category-card,
-  .highlight-card,
-  .channel-link,
-  .timeline-card {
-    padding: 1.25rem;
-  }
+ .contact-form-card,
+.project-card,
+.skills-category-card,
+.highlight-card,
+.timeline-card {
+  padding: 1.25rem;
+}
 
   .contact-info h4,
   .contact-info p {

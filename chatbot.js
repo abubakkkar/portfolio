@@ -391,11 +391,15 @@
       }
 
       if (msg.includes('experience') || msg.includes('job') || msg.includes('career') || msg.includes('company')) {
-        return "Abubakar's work experience includes:\n- **Co-Founder** at **Slang** (Aug 2026 - Present)\n- **AI Intern** at **FlyRank AI** (July 2026 - Present)";
+        return "Abubakar's work experience includes:\n- **Co-Founder** at **Slang** (Aug 2026 - Present)\n- **Frontend Developer** at **FlyRank AI** (July 2026 - Present)";
       }
 
       if (msg.includes('education') || msg.includes('studied') || msg.includes('studies')|| msg.includes('study') || msg.includes('school')) {
         return "Abubakar's education history:\n- **BS Software Engineering** at University of Engineering and Technology (UET) Lahore (2025 - Present)\n- **Intermediate** at Government College University (GCU) Lahore (2023 - 2025)\n- **Matriculation** at St. Anthony's High School Lahore (2021 - 2023)";
+      }
+
+      if (msg.includes('hire') && msg.includes('him') || msg.includes('abubakar')) {
+        return "If you're interested in hiring Abubakar, you can reach him via:\n- **Email**: muhammadabubakar85033@gmail.com";
       }
 
       if (msg.includes('school') ) {
@@ -420,6 +424,10 @@
 
       if (msg.includes('location') )
         return "Lahore, Pakistan";
+
+      if (msg.includes('slang') || msg.includes('Slang') ) {
+        return "One place for every customer conversation. 💬Support smarter. Integrate everything. Powered by SLANG. ⚡ Link: https://slang-intro.vercel.app/";
+      }
 
       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";    }
   }
