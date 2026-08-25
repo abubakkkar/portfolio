@@ -43,7 +43,7 @@
   --glow-purple: 0 0 35px rgba(139, 92, 246, 0.3);
   --glow-box: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.1);
 
-  /* Typography */
+  /* Typography Fonts */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -53,12 +53,25 @@
   --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
+  /* Standardized Typographic Scale System (8 tokens) */
+  --fs-xs: 0.75rem;    /* 12px - Badges, timestamps, captions */
+  --fs-sm: 0.875rem;   /* 14px - Chips, metadata, secondary text */
+  --fs-base: 1rem;     /* 16px - Body text, buttons, inputs, links */
+  --fs-md: 1.125rem;   /* 18px - Lead text, subheaders, category titles */
+  --fs-lg: 1.25rem;    /* 20px - Card titles, modal headers */
+  --fs-xl: 1.5rem;     /* 24px - Large section sub-titles, icons */
+  --fs-2xl: 2.25rem;   /* 36px - Section titles */
+  --fs-3xl: 3.5rem;    /* 56px - Hero headline */
+
+  /* Standardized Border Radius System (5 tokens) */
+  --radius-xs: 4px;    /* Badges, tags, scrollbars */
+  --radius-sm: 8px;    /* Inputs, small cards, channel links */
+  --radius-md: 16px;   /* Cards, chat windows, modals */
+  --radius-lg: 24px;   /* Large panels */
+  --radius-full: 9999px; /* Pills & circles */
+
   /* Layout Spacing */
   --container-max-width: 1240px;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-full: 9999px;
 }
 
 /* --------------------------------------------------------------------------
@@ -131,12 +144,12 @@ a {
 
 .scroll-to-top {
   position: fixed;
-  right: 40rem;
-  bottom: 1.4rem;
+  right: 6.5rem;
+  bottom: 2rem;
   width: 48px;
   height: 48px;
   border: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +157,7 @@ a {
   color: white;
   box-shadow: var(--glow-cyan);
   cursor: pointer;
-  z-index: 1100;
+  z-index: 9990;
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -904,8 +917,9 @@ section {
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+  align-items: stretch;
 }
 
 .project-card {
@@ -917,7 +931,7 @@ section {
   backdrop-filter: blur(16px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 100%;
   transition: all var(--transition-normal);
   overflow: hidden;
 }
@@ -932,29 +946,67 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 1;
 }
 
 .project-badge {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
   background: rgba(139, 92, 246, 0.15);
   color: var(--accent-purple);
   border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
+.project-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
 .project-view-btn {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--accent-cyan);
   display: inline-flex;
@@ -973,34 +1025,6 @@ section {
 
 .project-view-btn:hover i {
   transform: translateX(4px);
-}
-
-.project-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.75rem;
-  position: relative;
-  z-index: 1;
-}
-
-.project-card-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 1.75rem;
-  flex-grow: 1;
-  position: relative;
-  z-index: 1;
-}
-
-.project-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .project-tech-tags span {
@@ -1136,14 +1160,16 @@ section {
    -------------------------------------------------------------------------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
   align-items: start;
 }
 
 .contact-info h4 {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 1rem;
@@ -1151,41 +1177,44 @@ section {
 }
 
 .contact-info p {
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
   line-height: 1.7;
 }
 
 .contact-channels {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .channel-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  width: auto;
-  border-radius: 10px;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(16px);
   transition: all var(--transition-fast);
 }
 
 .channel-link:hover {
   border-color: var(--border-active);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: var(--glow-box);
 }
 
 .channel-icon {
-  width: 60px;
-  height: 60px;
-  min-width: 60px;
-  min-height: 60px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
 
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.3);
 
@@ -1193,18 +1222,21 @@ section {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 1.2rem;
+  color: var(--accent-cyan);
 }
 
-/* Make all logos/icons the same size */
+/* Make all logos/icons standard size */
 .channel-icon svg,
 .channel-icon img,
 .channel-icon i {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
   display: block;
   object-fit: contain;
 }
+
 .channel-link-linkedin .channel-icon {
   background: rgba(10, 102, 194, 0.15);
   border-color: rgba(10, 102, 194, 0.4);
@@ -1223,7 +1255,7 @@ section {
 }
 
 .channel-lbl {
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1670,14 +1702,13 @@ section {
    -------------------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(3, 7, 18, 0.85);
+  background: rgba(3, 7, 18, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  z-index: 10000;
+  z-index: 10050;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1696,22 +1727,23 @@ section {
 
 .modal-container {
   width: 100%;
-  max-width: 680px;
+  max-width: 650px;
+  max-height: min(85vh, 720px);
+  margin: auto;
   background: rgba(15, 23, 42, 0.95);
   border: 1px solid var(--border-active);
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), var(--glow-cyan);
   overflow: hidden;
-  transform: scale(0.92) translateY(20px);
+  transform: scale(0.94);
   transition: transform var(--transition-normal);
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
   position: relative;
 }
 
 .modal-backdrop.active .modal-container {
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 
 .modal-header {

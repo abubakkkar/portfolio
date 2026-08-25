@@ -146,6 +146,12 @@
     });
 
     function openChat() {
+      // Close profile modal if active to maintain single overlay focus
+      const profileModal = document.getElementById('profile-modal');
+      if (profileModal && profileModal.classList.contains('active')) {
+        profileModal.classList.remove('active');
+        profileModal.setAttribute('aria-hidden', 'true');
+      }
       chatWindow.classList.add('active');
       triggerBtn.classList.add('active');
       triggerBtn.innerHTML = `<span class="chatbot-trigger-icon"><i class="fa-solid fa-xmark"></i></span>`;

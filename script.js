@@ -441,6 +441,22 @@ function initProfileHub() {
     // Helper to open Modal
     const openModal = (tabName = "import-tab") => {
         if (!modal) return;
+        
+        // Close chatbot window if active to avoid overlay conflict
+        const chatbotWindow = document.getElementById("chatbot-window");
+        const chatbotTrigger = document.getElementById("chatbot-trigger");
+        if (chatbotWindow && chatbotWindow.classList.contains("active")) {
+            chatbotWindow.classList.remove("active");
+            if (chatbotTrigger) {
+                chatbotTrigger.classList.remove("active");
+                chatbotTrigger.innerHTML = `
+                    <span class="chatbot-trigger-icon"><i class="fa-solid fa-robot"></i></span>
+                    <span class="chatbot-badge-dot"></span>
+                    <span class="chatbot-trigger-tooltip">Ask Abubakar's AI</span>
+                `;
+            }
+        }
+
         modal.classList.add("active");
         modal.setAttribute("aria-hidden", "false");
         switchTab(tabName);
