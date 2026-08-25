@@ -52,7 +52,7 @@ function initBackToTop() {
 }
 
 /* ==========================================================================
-   2. CUSTOM INTERACTIVE CURSOR WITH LERP SMOOTHING
+   2. CUSTOM INTERACTIVE CURSOR WITH GPU TRANSFORM LERP SMOOTHING
    ========================================================================== */
 function initCustomCursor() {
     const cursorRing = document.getElementById("magnetic-cursor");
@@ -67,45 +67,71 @@ function initCustomCursor() {
         return;
     }
     
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let isCursorActive = false;
     
     document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         
-        // Instant position for inner core dot
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
+        if (!isCursorActive) {
+            isCursorActive = true;
+            ringX = mouseX;
+            ringY = mouseY;
+            cursorRing.classList.add("visible");
+            cursorDot.classList.add("visible");
+        }
+        
+        // Instant GPU position for inner core dot
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
     });
     
-    // Easing loop for trailing ring
+    document.addEventListener("mouseleave", () => {
+        cursorRing.classList.remove("visible");
+        cursorDot.classList.remove("visible");
+        isCursorActive = false;
+    });
+
+    document.addEventListener("mouseenter", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        ringX = mouseX;
+        ringY = mouseY;
+        cursorRing.classList.add("visible");
+        cursorDot.classList.add("visible");
+        isCursorActive = true;
+    });
+    
+    // Easing loop for trailing ring (GPU-accelerated translate3d)
     function animateCursorRing() {
-        const ease = 0.15; // Easing parameter (lower = slower lag)
-        ringX += (mouseX - ringX) * ease;
-        ringY += (mouseY - ringY) * ease;
-        
-        cursorRing.style.left = `${ringX}px`;
-        cursorRing.style.top = `${ringY}px`;
+        if (isCursorActive) {
+            const ease = 0.18; // Smooth lag factor
+            ringX += (mouseX - ringX) * ease;
+            ringY += (mouseY - ringY) * ease;
+            
+            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        }
         
         requestAnimationFrame(animateCursorRing);
     }
     animateCursorRing();
     
-    // Expand cursor ring when hovering over interactive elements
-    const interactiveElements = document.querySelectorAll(
-        "a, button, .project-card, .skills-category-card, .highlight-card, .channel-link, input, textarea"
-    );
+    // Expand cursor ring using Event Delegation (covers dynamically created elements)
+    const interactiveSelector = "a, button, .project-card, .skills-category-card, .highlight-card, .channel-link, input, textarea, .btn, .nav-link, .suggested-btn, .chatbot-trigger, .chatbot-close-btn, .chatbot-send-btn, .project-view-btn, .modal-tab";
     
-    interactiveElements.forEach(el => {
-        el.addEventListener("mouseenter", () => {
+    document.addEventListener("mouseover", (e) => {
+        if (e.target.closest(interactiveSelector)) {
             cursorRing.classList.add("cursor-magnetic-hover");
-        });
-        el.addEventListener("mouseleave", () => {
+        }
+    });
+    
+    document.addEventListener("mouseout", (e) => {
+        if (e.target.closest(interactiveSelector)) {
             cursorRing.classList.remove("cursor-magnetic-hover");
-        });
+        }
     });
 }
 
