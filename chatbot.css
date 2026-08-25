@@ -4,32 +4,41 @@
 
 /* Navbar Ask AI Button Styling */
 .nav-ask-ai-btn {
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: var(--accent-cyan) !important;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(56, 189, 248, 0.06));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc !important;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.35rem 0.85rem;
+  line-height: 1.2;
+  letter-spacing: 0.3px;
+  padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  transition: all var(--transition-fast);
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all var(--transition-normal);
 }
 
 .nav-ask-ai-btn i {
-  font-size: 0.8rem;
-  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  color: #c084fc;
+  transition: transform var(--transition-fast);
 }
 
 .nav-ask-ai-btn:hover {
-  background: rgba(56, 189, 248, 0.2);
-  border-color: var(--accent-cyan);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(56, 189, 248, 0.15));
+  border-color: #c084fc;
   color: #ffffff !important;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
-  transform: translateY(-1px);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
+  transform: translateY(-2px);
+}
+
+.nav-ask-ai-btn:hover i {
+  color: #ffffff;
+  transform: rotate(15deg) scale(1.15);
 }
 
 /* --------------------------------------------------------------------------
