@@ -435,6 +435,22 @@
         return "One place for every customer conversation. 💬Support smarter. Integrate everything. Powered by SLANG. ⚡ Link: https://slang-intro.vercel.app/";
       }
 
+      if (msg.includes('expertise') || msg.includes('Expertise') || msg.includes('Expertises') || msg.includes('Skills') || msg.includes('skills') || msg.includes('skill') ) {
+        return "Abubakar has expertise in the following areas:\n- **Frontend Development**: HTML, CSS, JavaScript, React, Next.js, TypeScript\n- **Backend Development**: Node.js, Express.js, Python, Django, Flask\n- **Database Management**: MongoDB, MySQL, PostgreSQL\n- **Tools & Technologies**: Git, GitHub, Docker, Vercel, Netlify, Firebase\n- **AI/ML**: TensorFlow, PyTorch, Keras, OpenCV, Scikit-learn";
+      }
+
+      if (msg.includes('programming languages') || msg.includes('Programming Languages') || msg.includes('programming') || msg.includes('Programming') ) {
+        return "Abubakar is proficient in the following programming languages:\n- JavaScript\n- TypeScript\n- Python\n- C++\n- Java\n- C";
+      }
+
+      if (msg.includes('cv') || msg.includes('Cv') || msg.includes('cv') || msg.includes('CV') ) {
+        return "You can download Abubakar's CV from here: https://drive.google.com/file/d/1_8HjX9Qy7fC2xY5x0L0k8V5x0L0k8V5x/view?usp=sharing";
+      }
+
+      if (msg.includes('Resume') || msg.includes('resume') ) {
+        return "You can download Abubakar's Resume from here: https://drive.google.com/file/d/1_8HjX9Qy7fC2xY5x0L0k8V5x0L0k8V5x/view?usp=sharing";
+      }
+
       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";    }
   }
 })();
