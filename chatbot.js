@@ -310,7 +310,7 @@
         .replace(/>/g, '&gt;');
 
       // Convert Markdown Links [text](url)
-      safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      safe = safe.replace(/\[([^\]]+)\]\(([^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
 
       // Convert Bold **text**
       safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -443,12 +443,8 @@
         return "Abubakar is proficient in the following programming languages:\n- JavaScript\n- TypeScript\n- Python\n- C++\n- Java\n- C";
       }
 
-      if (msg.includes('cv') || msg.includes('Cv') || msg.includes('cv') || msg.includes('CV') ) {
-        return "You can download Abubakar's CV from here: https://drive.google.com/file/d/1_8HjX9Qy7fC2xY5x0L0k8V5x0L0k8V5x/view?usp=sharing";
-      }
-
-      if (msg.includes('Resume') || msg.includes('resume') ) {
-        return "You can download Abubakar's Resume from here: https://drive.google.com/file/d/1_8HjX9Qy7fC2xY5x0L0k8V5x0L0k8V5x/view?usp=sharing";
+      if (msg.includes('cv') || msg.includes('resume')) {
+        return "You can download Abubakar's CV/Resume from here: [Download CV](data/cvupdated.pdf)";
       }
 
       return "I can only share Abubakar's professional details. You can ask me about his skills, projects, experience, education, or professional background.";    }
