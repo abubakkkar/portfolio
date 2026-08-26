@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const chatHandler = require('./api/chat');
+const contactHandler = require('./api/contact');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,10 @@ app.use(express.static(path.join(__dirname)));
 // API Routes
 app.post('/api/chat', (req, res) => {
   return chatHandler(req, res);
+});
+
+app.post('/api/contact', (req, res) => {
+  return contactHandler(req, res);
 });
 
 // Fallback to index.html for single page layout

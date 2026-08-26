@@ -196,7 +196,7 @@ function initScrollSpy() {
 }
 
 /* ==========================================================================
-   4. CONTACT FORM SIMULATION
+   4. CONTACT FORM TO BACKEND
    ========================================================================== */
 function initContactForm() {
     const form = document.getElementById("contact-form");
@@ -204,31 +204,61 @@ function initContactForm() {
 
     if (!form || !statusMsg) return;
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
         
         const submitBtn = form.querySelector("button[type='submit']");
         const originalText = submitBtn.innerHTML;
         
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Simulating...</span><i class="fa-solid fa-spinner fa-spin"></i>`;
+        submitBtn.innerHTML = `<span>Dispatching...</span><i class="fa-solid fa-spinner fa-spin"></i>`;
         statusMsg.textContent = "";
         statusMsg.className = "form-status";
 
-        setTimeout(() => {
+        try {
+            // Web3Forms API
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: 'fe905750-a0c3-402c-94a6-44cb0bd1d272',
+                    name: name,
+                    email: email,
+                    message: message,
+                    subject: `New Portfolio Contact from ${name}`
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                statusMsg.textContent = "Packet dispatched successfully! I will get back to you soon.";
+                statusMsg.className = "form-status success";
+                form.reset();
+            } else {
+                statusMsg.textContent = data.message || "Failed to dispatch packet. Please try again later.";
+                statusMsg.className = "form-status error";
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+            statusMsg.textContent = "Network error. Please try again later.";
+            statusMsg.className = "form-status error";
+        } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
-
-            statusMsg.textContent = "Packet dispatched successfully. Thank you for connecting!";
-            statusMsg.className = "form-status success";
-
-            form.reset();
-
+            
             setTimeout(() => {
                 statusMsg.textContent = "";
                 statusMsg.className = "form-status";
             }, 6000);
-        }, 1800);
+        }
     });
 }
 
