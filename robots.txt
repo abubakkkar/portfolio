@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abubakkkar.netlify.app/sitemap.xml
+Sitemap: https://muhammad-abubakar.me/sitemap.xml
